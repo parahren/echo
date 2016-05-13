@@ -5,7 +5,10 @@ import (
 	//"github.com/lxn/win"
 	"github.com/go-ole/go-ole"
 	"github.com/go-ole/go-ole/oleutil"
-	"github.com/rowetechinc/go-serial"
+
+	"github.com/ricorx7/go-serial"
+
+	//"github.com/rowetechinc/go-serial"
 	//"github.com/tarm/goserial"
 	//"github.com/johnlauer/goserial"
 	"log"
