@@ -29,9 +29,15 @@ const (
 )
 
 // upgrader sets the buffer sizes for the websocket.
+// var upgrader = websocket.Upgrader{
+// 	ReadBufferSize:  1024,
+// 	WriteBufferSize: 1024,
+// }
+
+//var upgrader = websocket.Upgrader{} // use default options
+
 var upgrader = websocket.Upgrader{
-	ReadBufferSize:  1024,
-	WriteBufferSize: 1024,
+    CheckOrigin: func(r *http.Request) bool { return true },
 }
 
 // websocketConn struct keeps the Websocket connection.
@@ -120,13 +126,16 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Create a websocket and check it was created properly
 	ws, err := upgrader.Upgrade(w, r, nil)
-	if _, ok := err.(websocket.HandshakeError); ok {
-		http.Error(w, "Not a websocket handshake", 400)
-		return
-	} else if err != nil {
+	// if _, ok := err.(websocket.HandshakeError); ok {
+	// 	http.Error(w, "Not a websocket handshake", 400)
+	// 	return
+	// } else if err != nil {
+	if err != nil {
 		log.Println("Error opening socket: " + err.Error())
 		return
 	}
+
+	defer ws.Close()
 
 	// Make a async channel to create the websocket connection
 	// This will block until the buffer is full

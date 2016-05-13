@@ -7,7 +7,8 @@ import (
 	"log"
 	"strings"
 
-	"github.com/rowetechinc/go-serial"
+	//"github.com/rowetechinc/go-serial"
+    "github.com/ricorx7/go-serial"
 )
 
 ///
@@ -69,11 +70,12 @@ func GetList() ([]OsSerialPort, error) {
 /// Create a meta list of all the serial ports.
 ///
 func GetMetaList() ([]OsSerialPort, error) {
-	metaportlist, err := getMetaList()
-	if err.Err != nil {
-		return nil, err.Err
-	}
-	return metaportlist, err.Err
+	//metaportlist, err := getMetaList()
+	//if err.Err != nil {
+		//return nil, err.Err
+	//}
+	//return metaportlist, err.Err
+	return nil, nil
 }
 
 ///

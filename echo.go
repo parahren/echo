@@ -267,7 +267,7 @@ func serialPortRecord(cmd string) {
 
 	log.Println(portname)
 
-	if strings.Compare(strings.ToUpper(strings.TrimSpace(cmds[2])), "START") == 0 {
+	if (strings.ToUpper(strings.TrimSpace(cmds[2])) == "START") {
 		log.Printf("Start recording command recevied: %s", cmds[2])
 		// Close the given serial port
 		startRecording(portname)

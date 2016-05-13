@@ -316,11 +316,11 @@ func write(wr writeRequest, id string) {
 	log.Println("serial Write: " + wr.d)
 
 	// Check if the command is a BREAK
-	cmdU := strings.ToUpper(wr.d)
-	if cmdU == "BREAK" {
-		wr.p.serialPort.SendBreak(400)
-		return
-	}
+	//cmdU := strings.ToUpper(wr.d)
+	//if cmdU == "BREAK" {
+//		wr.p.serialPort.SendBreak(400)
+//		return
+//	}
 
 	// FINALLY, OF ALL THE CODE IN THIS PROJECT
 	// WE TRULY/FINALLY GET TO WRITE TO THE SERIAL PORT!

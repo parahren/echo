@@ -15,7 +15,7 @@ import (
 var (
 	version      = "0.1"
 	versionFloat = float32(0.1)
-	addr         = flag.String("addr", ":8989", "http service address")
+	addr         = flag.String("addr", "localhost:8080", "http service address")
 	port         = flag.String("port", "", "Serial COM Port")
 	baud         = flag.String("baud", "115200", "Baud Rate")
 )
